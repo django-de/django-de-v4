@@ -1,1 +1,1 @@
-# django-de-v4
+# django-de 4.0

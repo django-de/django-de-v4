@@ -1,0 +1,16 @@
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+
+SECRET_KEY = '3t+deds@j3gma%cf8_x6zcj_yfv46jmefc^3#flb^-v@b&$'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djde',
+        #'USER': '',
+        #'PASSWORD: '',
+    }
+}

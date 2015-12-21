@@ -2,7 +2,9 @@ django
 misaka
 wagtail==1.3rc1
 
-psycopg2
+dj-database-url
 gunicorn
+psycopg2
+whitenoise
 
 -e .

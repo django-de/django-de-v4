@@ -5,6 +5,6 @@ global.Tether = require("tether");
                 require('bootstrap');
 
 // Bootstrap Tooltip Init
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+jQuery(function () {
+  jQuery('[data-toggle="tooltip"]').tooltip()
 });

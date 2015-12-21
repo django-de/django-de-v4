@@ -1,12 +1,134 @@
-<ul>
-    <li>Django-Verein
-    <li>News &amp; Events
-    <li>Hilfe &amp; Support
-</ul>
+{% extends "base.html" %}
 
-<ul>
-    <li>Was ist Django?
-    <li>Was wir machen
-    <li>Wobei wir helfen
-    <li>Mitglied im Verein
-<ul>
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block page_pre %}
+    <div class="teaser">
+    <div class="container">
+    </div>
+    </div>
+{% endblock page_pre %}
+
+{% block page %}
+<div class="content-box">
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        {% include "includes/title.html" with title=page.what_is_title align="left" %}
+    </div>
+    <div class="col-md-8">
+        {{ page.what_is_desc|richtext }}
+        {% comment %}
+        <p><span class="bg-warning">Wichtig</span> Diese Seite beschaeftigt sich mit dem Verein. Technische Infos
+            findest du auf djangoproject.com. Falls du Hilfe zu Django brauchst,
+            schau auf dieser Seite nach Resourcen.</p>
+        <p>
+            <a class="more" href="https://docs.djangoproject.com/">
+            Technische Dokumentation auf djangoproject.com <i class="icon-direction"></i>
+            </a>
+        </p>
+        {% endcomment %}
+    </div>
+</div>
+</div>
+</div>
+
+
+{% comment %}
+<div class="content-box secondary">
+<div class="container">
+<div class="row">
+    <div class="col-lg-3 col-md-6 content-box-teaser">
+        <i class="icon-energy"></i>
+        <h3>Ridiculously<br class="hidden-md-down"/> fast</h3>
+        <p>Django was designed to help developers take applications from concept
+            to completion as quickly as possible.</p>
+    </div>
+    <div class="col-lg-3 col-md-6 content-box-teaser">
+        <i class="icon-lock"></i>
+        <h3>Reassuringly<br class="hidden-md-down"/> secure</h3>
+        <p>Django takes security seriously and helps developers avoid many
+            common security mistakes..</p>
+    </div>
+    <div class="col-lg-3 col-md-6 content-box-teaser">
+        <i class="icon-briefcase"></i>
+        <h3>Fully<br class="hidden-md-down"/> loaded</h3>
+        <p>Django includes dozens of extras you can use to handle common Web
+            development tasks. Django takes care of user authentication,
+            content administration, site maps, RSS feeds, and many more tasks
+            — right out of the box...</p>
+    </div>
+    <div class="col-lg-3 col-md-6 content-box-teaser">
+        <i class="icon-layers"></i>
+        <h3>Exceedingly<br class="hidden-md-down"/> scalable</h3>
+        <p>Some of the busiest sites on the Web leverage Django’s ability to
+            quickly and flexibly scale..</p>
+    </div>
+</div>
+</div>
+</div>
+
+{% endcomment %}
+
+
+<div class="content-box secondary">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title=page.we_are_title %}
+    </div>
+    <div class="col-md-9">
+        {{ page.we_are_desc|richtext }}
+    </div>
+    <div class="col-md-3">
+    {% for doc in page.we_are_files %}
+        <p><a class="more" href="{{ doc.value.document.url }}">{{ doc.value.title }}</a></p>
+    {% endfor %}
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="content-box">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title=page.we_help_title %}
+    </div>
+</div>
+<div class="row content-box-grid">
+
+{% for item in page.we_help_items %}
+    {% cycle "box1" "box2" "box3" "box4" as box silent %}
+    {% cycle "left" "left" "right" "right" as direction silent %}
+    {% image item.value.image fill-300x300 as img %}
+
+    {% if direction == "right" %}
+    <div class="col-md-3 hidden-md-down grid-box {{ box }} arrow-right"
+        style="background-image: url({{ img.url }});"></div>
+    {% endif %}
+    <div class="col-md-3 grid-box {{ box }}">
+        {{ item.value.title }}
+        {% if item.value.link %}
+        <p><a class="more" href="{{ item.value.link }}">Mehr dazu</a></p>
+        {% endif %}
+    </div>
+    {% if direction == "left" %}
+    <div class="col-md-3 hidden-md-down grid-box {{ box }} arrow-left"
+        style="background-image: url({{ img.url }});"></div>
+    {% endif %}
+
+{% endfor %}
+
+</div>
+<div class="row c-margin-t-50">
+    <div class="col-md-12 text-center">
+        <a href="{% slugurl "verein" %}" class="more">Mehr über den Verein und die Mitgliedschaft</a>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock page %}

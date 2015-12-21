@@ -1,0 +1,25 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+<div class="row event-box">
+<div class="col-md-3 image">
+    {% image event.image fill-300x300  %}
+</div>
+<div class="col-md-2 date">
+    {% if event.recurring %}
+    <i class="icon-refresh"></i>
+    {% else %}
+    {{ event.date|date:"d.m.Y" }}
+    {% endif %}
+</div>
+<div class="col-md-7 content">
+    <h2>{{ event.title }}</h2>
+    {{ event.description|richtext }}
+    {% if event.images or event.external_url %}
+    <p>
+        {% if event.event.external_url %}<a class="more" href="{{ event.external_url }}">Webseite</a>{% endif %}
+        {% if event.images %}<a class="more" href="{{ event.url }}">Weitere Bilder</a>{% endif %}
+    </p>
+    {% endif %}
+</div>
+</div>

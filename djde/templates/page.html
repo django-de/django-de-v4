@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block page %}
+<div class="content-box page-title">
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        {% include "includes/title.html" with title=page.title align="left" %}
+    </div>
+    <div class="col-md-8">
+        {{ page.description|richtext }}
+    </div>
+</div>
+</div>
+</div>
+
+{% for item in page.sections %}
+<div class="content-box {% cycle "" "secondary" %}">
+<div class="container">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        {% include "includes/title.html" with title=item.value.title align="center" %}
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        {{ item.value.body|richtext }}
+    </div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% endblock page %}

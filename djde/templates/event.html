@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block page %}
+<div class="content-box page-title">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title=page.title align="center" %}
+    </div>
+    {% if page.description %}
+    <div class="col-md-8 col-md-offset-2">
+        <p class="event-date">
+            {% if page.recurring %}
+            <i class="icon-refresh"></i>
+            {% else %}
+            {{ page.date|date:"d.m.Y" }}
+            {% endif %}
+        </p>
+
+        {{ page.description|richtext }}
+
+        {% if event.event.external_url %}
+        <p>
+            <a class="more" href="{{ event.external_url }}">Webseite</a>
+        </p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+</div>
+</div>
+
+<div class="content-box">
+<div class="container">
+    {% for img in page.images %}
+    <div class="row c-margin-b-30">
+        <div class="col-md-12 text-center">
+            {% image img.value max-800x600 %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock page %}

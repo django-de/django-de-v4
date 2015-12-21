@@ -26,8 +26,12 @@
     "loglevel": "^1.4.0",
     "node-sass": "^3.4.2",
     "postcss-cli": "^2.3.2",
+    "simple-line-icons": "^2.2.3",
     "tether": "^1.1.1",
     "uglifyjs": "^2.4.10"
   },
-  "homepage": "https://github.com/django-de/django-de-v4#readme"
+  "homepage": "https://github.com/django-de/django-de-v4#readme",
+  "devDependencies": {
+    "watchify": "^3.6.1"
+  }
 }

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block page %}
+<div class="content-box page-title">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title="Hilfe &amp; Support" align="center" %}
+    </div>
+    {% if page.description %}
+    <div class="col-md-8 col-md-offset-2">
+        {{ page.description|richtext }}
+    </div>
+    {% endif %}
+</div>
+</div>
+</div>
+
+<div class="content-box">
+<div class="container">
+{% for item in page.items %}
+<div class="row{% if not forloop.first %} c-margin-t-50{% endif %}">
+    <div class="col-md-4">
+        {% include "includes/title.html" with title=item.value.title align="left" %}
+    </div>
+    <div class="col-md-8">
+        {% if item.value %}{{ item.value.description|richtext }}{% endif %}
+        {% if item.value.link %}<p><a class="more" href="{{ item.value.link }}">{{ item.value.link }}</a></p>{% endif %}
+    </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock page %}

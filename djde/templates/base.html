@@ -1,0 +1,75 @@
+{% load static from staticfiles %}
+{% load wagtailuserbar %}
+{% load wagtailcore_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+        <title>{{ page.title }}</title>
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+
+    <header class="header">
+    <div class="container">
+        <nav>
+            <h1 class="logo pull-left">
+                <a href="{% slugurl "homepage" %}">Deutscher Django-Verein e.V.</a>
+            </h1>
+            <ul class="nav navbar-nav pull-right">
+                <li class="nav-item"><a class="nav-link" href="{% slugurl "verein" %}">Verein &amp Mitgliedschaft</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% slugurl "termine" %}">Termine</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% slugurl "hilfe" %}">Django Hilfe</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+    {% block page_pre %}
+    {% endblock %}
+
+    {% block page %}
+    {% endblock page %}
+
+    {% block page_post %}
+    {% endblock %}
+
+    <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo">Deutscher Django-Verein e.V.</div>
+                <ul class="nav navbar-nav">
+                    <li><a class="more" href="{% slugurl "homepage" %}">Startseite</a></li>
+                    <li><a class="more" href="{% slugurl "verein" %}">Verein &amp; Mitgliedschaft</a></li>
+                    <li><a class="more" href="{% slugurl "termine" %}">Termine</a></li>
+                    <li><a class="more" href="{% slugurl "hilfe" %}">Django Hilfe</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Neue Tweets</h2>
+            </div>
+            <div class="col-md-4">
+                <p>Deutscher Django-Verein e. V.<br/>
+                    Erich-Zeigner-Allee 52<br/>
+                    04229 Leipzig<br/>
+                    Deutschland</p>
+
+                <p>Der Verein wird vertreten durch den Vorstand Markus Zapke-Gründemann,
+                    Martin Mahner und Stephan Jaekel.</p>
+
+                <p>Vereinsregister: Amtsgericht Leipzig<br/>
+                    Registernummer: VR 4814<br/>
+                    USt-ID: DE269932358</p>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+    <script src="{% static "js/base.js" %}"></script>
+    {% wagtailuserbar %}
+    </body>
+</html>

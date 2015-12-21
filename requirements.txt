@@ -1,5 +1,4 @@
 django
-misaka
 wagtail==1.3rc1
 
 dj-database-url

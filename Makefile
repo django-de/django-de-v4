@@ -52,6 +52,6 @@ js:
 
 # ------------------------------------------------------------------------------
 
-all: clean assets css js collect
+all: assets css js
 
 .PHONY: clean assets css js collect

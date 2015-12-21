@@ -2,8 +2,10 @@ django
 wagtail==1.3rc1
 
 dj-database-url
+dj-static
 gunicorn
 psycopg2
-whitenoise
+static
+wsgiref
 
 -e .

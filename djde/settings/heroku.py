@@ -7,6 +7,8 @@ import dj_database_url
 
 ALLOWED_HOSTS = ('*',)
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', None)
 
 DEBUG = os.environ.get('DJANGO_DEBUG', False) == "True"  # Set env var to "True"

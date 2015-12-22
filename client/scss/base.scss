@@ -273,8 +273,9 @@ span.bg-warning {
         background-color: #f7f7f7;
     }
 
-    .date h2 {
+    .date {
         color: $general-link-hover-color;
+        span { color: #ccc; }
     }
 }
 

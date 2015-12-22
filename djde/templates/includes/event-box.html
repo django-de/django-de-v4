@@ -2,23 +2,24 @@
 {% load wagtailimages_tags %}
 
 <div class="row event-box">
-<div class="col-md-3 image">
-    {% image event.image fill-300x300  %}
+<div class="col-md-4 image">
+    {% image event.image fill-300x200  %}
     {% if event.credit %}
     <p class="image-label"><a href="{{ event.url }}#credit">Bildnachweis</a></p>
     {% endif %}
 </div>
-<div class="col-md-2 date">
+<div class="col-md-8 content">
     <h2>
-        {% if event.recurring %}
-        <i class="icon-refresh"></i>
-        {% else %}
-        {{ event.date|date:"d.m.Y" }}
-        {% endif %}
+        <span class="date">
+            {% if event.recurring %}
+            <i class="icon-refresh"></i>
+            {% else %}
+            {{ event.date|date:"d.m.Y" }}
+            {% endif %}
+            <span>:</span>
+        </span>
+        {{ event.title }}
     </h2>
-</div>
-<div class="col-md-7 content">
-    <h2>{{ event.title }}</h2>
     {{ event.description|richtext }}
     <p><a class="more" href="{{ event.url }}">Mehr...</a></p>
 </div>

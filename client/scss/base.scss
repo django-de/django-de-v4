@@ -255,11 +255,20 @@ span.bg-warning {
    Homepage Teaser Image
 ---------------------------------------------------------------------------- */
 .teaser {
-    background-image: url(../assets/bg.jpg);
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
+    border-top: $hr-border-width solid $hr-border-color;
+    border-bottom: $hr-border-width solid $hr-border-color;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 300;
+    color: $django-green;
+
+    .row {
+        padding: 1em 0;
+    }
+
+    p {
+        margin: 0 auto;
+    }
 }
 
 .event-box {

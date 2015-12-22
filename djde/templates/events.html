@@ -3,18 +3,7 @@
 {% load wagtailcore_tags %}
 
 {% block page %}
-<div class="content-box page-title">
-<div class="container">
-<div class="row">
-    <div class="col-md-4">
-        {% include "includes/title.html" with title="Termine" align="left" %}
-    </div>
-    <div class="col-md-8">
-        {{ page.description|richtext }}
-    </div>
-</div>
-</div>
-</div>
+{% include "includes/page-title.html" %}
 
 {% if page.recurring %}
 <div class="content-box">

@@ -6,6 +6,11 @@
 {% block page_pre %}
     <div class="teaser">
     <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        {{ page.teaser|richtext }}
+        </div>
+    </div>
     </div>
     </div>
 {% endblock page_pre %}

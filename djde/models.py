@@ -36,6 +36,8 @@ class DocumentsBlock(blocks.StructBlock):
 
 
 class HomePage(Page):
+    teaser = RichTextField('Teaser')
+
     what_is_title = models.CharField('What is - Title', max_length=100)
     what_is_desc = RichTextField('What is - Description')
 
@@ -53,6 +55,8 @@ class HomePage(Page):
     # --- Wagtail Settings ----------------------------------------------------
     template = 'homepage.html'
     content_panels = Page.content_panels + [
+        FieldPanel('teaser'),
+
         FieldPanel('what_is_title'),
         FieldPanel('what_is_desc'),
 

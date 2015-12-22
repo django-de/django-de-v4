@@ -269,19 +269,10 @@ span.bg-warning {
         height: auto;
         max-width: 100%;
     }
-
-    .content {
-        background-color: #f7f7f7;
-    }
-
     .date {
         color: $general-link-hover-color;
         margin-right: .3em;
     }
-}
-
-.secondary .event-box .content {
-    background-color: white;
 }
 
 .event-date {

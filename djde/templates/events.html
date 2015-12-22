@@ -19,16 +19,14 @@
 {% if page.recurring %}
 <div class="content-box">
 <div class="container">
-<div class="row">
-    <div class="col-md-12">
-    {% include "includes/title.html" with title="Wiederkehrende Termine" %}
+    <div class="row">
+        <div class="col-md-12">
+        {% include "includes/title.html" with title="Wiederkehrende Termine" %}
+        </div>
     </div>
-</div>
-<div class="row">
     {% for event in page.recurring %}
         {% include "includes/event-box.html" %}
     {% endfor %}
-</div>
 </div>
 </div>
 {% endif %}
@@ -36,15 +34,14 @@
 {% if page.upcoming %}
 <div class="content-box secondary">
 <div class="container">
-<div class="row">
-    <div class="col-md-12">
-    {% include "includes/title.html" with title="Anstehend" %}    </div>
-</div>
-<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+        {% include "includes/title.html" with title="Anstehend" %}
+        </div>
+    </div>
     {% for event in page.upcoming %}
         {% include "includes/event-box.html" %}
     {% endfor %}
-</div>
 </div>
 </div>
 {% endif %}
@@ -52,15 +49,14 @@
 {% if page.recent %}
 <div class="content-box">
 <div class="container">
-<div class="row">
-    <div class="col-md-12">
-    {% include "includes/title.html" with title="Vergangen" %}    </div>
-</div>
-<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+        {% include "includes/title.html" with title="Vergangen" %}
+        </div>
+    </div>
     {% for event in page.recent %}
         {% include "includes/event-box.html" %}
     {% endfor %}
-</div>
 </div>
 </div>
 {% endif %}

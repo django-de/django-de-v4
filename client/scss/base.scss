@@ -1,12 +1,14 @@
-// Fonts
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
 
-$simple-line-font-path        : "../assets/fonts/";
-$django-green: #43B78B;
+$simple-line-font-path: "../assets/fonts/";
+
+$general-font-family:        'Roboto', sans-serif;
+$general-font-family-titles: 'Roboto Condensed', sans-serif;
 
 $general-link-color:       #5b9bd1;
 $general-link-hover-color: #32c5d2;
+$django-green:             #43B78B;
 
 // Bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap';

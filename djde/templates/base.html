@@ -1,6 +1,7 @@
 {% load static from staticfiles %}
 {% load wagtailuserbar %}
 {% load wagtailcore_tags %}
+{% load djde_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +21,10 @@
                 <a href="{% slugurl "homepage" %}">Deutscher Django-Verein e.V.</a>
             </h1>
             <ul class="nav navbar-nav pull-right">
-                <li class="nav-item"><a class="nav-link" href="{% slugurl "verein" %}">Verein &amp Mitgliedschaft</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% slugurl "termine" %}">Termine</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% slugurl "hilfe" %}">Django Hilfe</a></li>
+                {% get_root_pages as menu_items %}
+                {% for p in menu_items %}
+                <li class="nav-item"><a class="nav-link" href="{{ p.url }}">{{ p.seo_title|default:p.title }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
     </div>
@@ -44,9 +46,9 @@
                 <div class="logo">Deutscher Django-Verein e.V.</div>
                 <ul class="nav navbar-nav">
                     <li><a class="more" href="{% slugurl "homepage" %}">Startseite</a></li>
-                    <li><a class="more" href="{% slugurl "verein" %}">Verein &amp; Mitgliedschaft</a></li>
-                    <li><a class="more" href="{% slugurl "termine" %}">Termine</a></li>
-                    <li><a class="more" href="{% slugurl "hilfe" %}">Django Hilfe</a></li>
+                    {% for p in menu_items %}
+                    <li><a class="more" href="{{ p.url }}">{{ p.seo_title|default:p.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-4">

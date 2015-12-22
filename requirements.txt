@@ -1,6 +1,7 @@
 django
 wagtail==1.3rc1
 
+willow
 dj-database-url
 dj-static
 gunicorn

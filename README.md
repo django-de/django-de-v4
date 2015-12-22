@@ -111,3 +111,17 @@ Note: If you create the S3 bucket for the first time, dont' forget to
 set up the [CORS headers][s3cors].
 
 [s3cors]: https://devcenter.heroku.com/articles/s3-upload-python#s3-setup
+
+#### Load a database backup from Heroku and install it locally:
+
+Create a new backup and download it right away:
+
+    $ heroku pg:backups capture
+    $ curl -o latest.dump `heroku pg:backups public-url`
+
+Then locally do:
+
+    $ pg_restore --verbose --clean --no-acl --no-owner \
+      -h localhost -U postgres -d <dbname> latest.dump
+
+(your database must exist before can do this)

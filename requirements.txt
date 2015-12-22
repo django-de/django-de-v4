@@ -1,12 +1,13 @@
+# Project Requirements
 django
 wagtail==1.3rc1
+psycopg2
 
+# This all is for Heroku
 willow
 dj-database-url
-dj-static
+django-s3-folder-storage
+whitenoise
 gunicorn
-psycopg2
-static
-wsgiref
 
 -e .

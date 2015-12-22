@@ -106,3 +106,8 @@ database.
 git push heroku master
 heroku run python manage.py migrate
 ```
+
+Note: If you create the S3 bucket for the first time, dont' forget to
+set up the [CORS headers][s3cors].
+
+[s3cors]: https://devcenter.heroku.com/articles/s3-upload-python#s3-setup

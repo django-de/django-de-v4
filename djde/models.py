@@ -131,6 +131,7 @@ class Event(Page):
     images = StreamField([
         ('image', ImageChooserBlock()),
     ], blank=True, verbose_name='Gallery Images')
+    credit = RichTextField('Image Credit', blank=True, null=True)
 
     # --- Wagtail Settings ----------------------------------------------------
     template = 'event.html'
@@ -141,6 +142,7 @@ class Event(Page):
         FieldPanel('recurring'),
         ImageChooserPanel('image'),
         StreamFieldPanel('images'),
+        FieldPanel('credit'),
     ]
 
 #==============================================================================

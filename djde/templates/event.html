@@ -22,9 +22,11 @@
 
         {{ page.description|richtext }}
 
-        {% if event.event.external_url %}
-        <p>
-            <a class="more" href="{{ event.external_url }}">Webseite</a>
+        {% if page.external_url %}
+        <p class="text-center">
+            <a class="more" href="{{ page.external_url }}">
+                {{ page.title }} Webseite besuchen
+            </a>
         </p>
         {% endif %}
     </div>
@@ -33,8 +35,14 @@
 </div>
 </div>
 
+{% if page.images %}
 <div class="content-box">
 <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title="Weitere Bilder" align="center" %}
+    </div>
+    </div>
     {% for img in page.images %}
     <div class="row c-margin-b-30">
         <div class="col-md-12 text-center">
@@ -44,4 +52,22 @@
     {% endfor %}
 </div>
 </div>
+{% endif %}
+
+{% if page.credit %}
+<div class="content-box" id="credit">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "includes/title.html" with title="Bildnachweis" align="center" %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        {{ page.credit|richtext }}
+    </div>
+</div>
+</div>
+</div>
+{% endif %}
 {% endblock page %}

@@ -24,6 +24,13 @@ $general-link-hover-color: #32c5d2;
     top: auto;
 }
 
+.image-label {
+    font-size: 13px;
+    margin: .3em 0;
+
+    a { color: $general-link-color; }
+}
+
 .lined {
     h2 {
         font-size: 30px;
@@ -266,8 +273,7 @@ span.bg-warning {
         background-color: #f7f7f7;
     }
 
-    .date {
-        font-size: 20px;
+    .date h2 {
         color: $general-link-hover-color;
     }
 }

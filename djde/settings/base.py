@@ -192,3 +192,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ==============================================================================
 
 WAGTAIL_SITE_NAME = "django-de"
+
+# Wagtail is using django-compressor for it's static files.
+# Disable that.
+COMPRESS_ENABLED = False

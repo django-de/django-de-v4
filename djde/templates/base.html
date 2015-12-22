@@ -42,8 +42,12 @@
     <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="logo">Deutscher Django-Verein e.V.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
                 <ul class="nav navbar-nav">
                     <li><a class="more" href="{% slugurl "homepage" %}">Startseite</a></li>
                     {% for p in menu_items %}
@@ -51,10 +55,13 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-md-4">
-                <h2>Neue Tweets</h2>
+            <div class="col-md-2">
+                <ul class="nav navbar-nav">
+                    <li><a class="more" href="https://twitter.com/djangode"><i class="icon-social-twitter"></i> Twitter</a></li>
+                    <li><a class="more" href="https://github.com/orgs/django-de"><i class="icon-social-github"></i> Github</a></li>
+                </ul>
             </div>
-            <div class="col-md-4">
+               <div class="col-md-7">
                 <p>Deutscher Django-Verein e. V.<br/>
                     Erich-Zeigner-Allee 52<br/>
                     04229 Leipzig<br/>

@@ -232,6 +232,7 @@ span.bg-warning {
     a:hover {color: $django-green; }
 
     a.more {
+        display: block;
         font-weight: 300;
         color: $footer-text-color-muted;
         border-color: $footer-text-color-muted;

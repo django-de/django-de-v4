@@ -17,8 +17,8 @@
 
 set -xeuf -o pipefail
 
-pipenv run ../manage.py collectstatic --noinput -v0
-pipenv run ../manage.py migrate --database default --noinput
+pipenv run django-admin collectstatic --noinput -v0
+pipenv run django-admin migrate --database default --noinput
 
 # Cleanup client side scripts which got already compiled
 rm -rf ./client

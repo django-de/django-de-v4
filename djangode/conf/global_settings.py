@@ -220,15 +220,3 @@ LOGGING_DICT = {
 
 # Apply logging dict config
 logging.config.dictConfig(LOGGING_DICT)
-
-
-# ==============================================================================
-# Sentry
-# ==============================================================================
-
-# export RAVEN_DSN=https://<key>:<sec>@sentry.example.com/1
-RAVEN_DSN = os.environ.get('RAVEN_DSN', None)
-
-if RAVEN_DSN:
-    INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
-    RAVEN_CONFIG = {'dsn': RAVEN_DSN}

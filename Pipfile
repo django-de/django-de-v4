@@ -13,14 +13,18 @@ pytest-django = "*"
 pytest-flakes = "*"
 pytest-isort = "*"
 "pytest-pep8" = "*"
-factory_boy = "*"
+factory-boy = "*"
 
 
 [packages]
 
 django-cms = ">=3.4.5"
 "psycopg2" = "*"
-Willow = "*"
+willow = "*"
 dj-database-url = "*"
 "django-s3-folder-storage" = "*"
 whitenoise = "*"
+raven = "*"
+django-markup = "*"
+markdown = "*"
+django-filer = "*"

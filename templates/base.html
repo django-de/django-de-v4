@@ -1,0 +1,123 @@
+{% load i18n %}
+{% load cms_tags %}
+{% load menu_tags %}
+{% load staticfiles %}
+{% load sekizai_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+  {% render_block "css" %}
+  <title>Deutscher Django-Verein e.V.</title>
+</head>
+<body>
+{% cms_toolbar %}
+
+<header class="header">
+  <div class="container">
+    <nav>
+      <h1 class="logo pull-left">
+        <a href="/">Deutscher Django-Verein e.V.</a>
+      </h1>
+      <ul class="nav navbar-nav pull-right">
+        {% show_menu 1 100 1 1 "includes/menu.html"%}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{% block page %}
+{% endblock %}
+
+<div class="content-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="lined center">
+          <h2>Wobei unterstützen wir euch?</h2>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="row content-box-grid">
+      <div class="col-md-3 grid-box box1">
+        Wir veranstalten User Groups und Konferenzen
+        <p><a class="more" href="termine.html">Mehr dazu</a></p>
+      </div>
+      <div class="col-md-3 hidden-md-down grid-box box1 arrow-left"
+           style="background-image: url(https://django-de-us.s3.amazonaws.com/images/IMG_3545.CR2.2e16d0ba.fill-300x300.jpg);"></div>
+      <div class="col-md-3 grid-box box2">
+        Wir repräsentieren Django auf Konferenzen, Messen und bei Firmen.
+      </div>
+      <div class="col-md-3 hidden-md-down grid-box box2 arrow-left"
+           style="background-image: url(https://django-de-us.s3.amazonaws.com/images/IMG_3545.CR2.2e16d0ba.fill-300x300.jpg);"></div>
+      <div class="col-md-3 hidden-md-down grid-box box3 arrow-right"
+           style="background-image: url(https://django-de-us.s3.amazonaws.com/images/IMG_3545.CR2.2e16d0ba.fill-300x300.jpg);"></div>
+      <div class="col-md-3 grid-box box3">
+        Wir betreuen den #django-de IRC Chat und Djangosnippets.
+        <p><a class="more" href="hilfe.html">Mehr dazu</a></p>
+      </div>
+      <div class="col-md-3 hidden-md-down grid-box box4 arrow-right"
+           style="background-image: url(https://django-de-us.s3.amazonaws.com/images/IMG_3545.CR2.2e16d0ba.fill-300x300.jpg);"></div>
+      <div class="col-md-3 grid-box box4">
+        Wir unterstützen euch bei der Durchführung von User Groups und Events.
+        Organisatorisch und finanziell.
+      </div>
+    </div>
+    <div class="row c-margin-t-50">
+      <div class="col-md-12 text-center">
+        <a href="verein.html" class="more">Mehr über den Verein und die
+          Mitgliedschaft</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">Deutscher Django-Verein e.V.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav navbar-nav">
+          <li><a class="more" href="index.html">Startseite</a></li>
+          <li><a class="more" href="verein.html">Verein &amp; Mitgliedschaft</a>
+          </li>
+          <li><a class="more" href="termine.html">Termine &amp; Events</a></li>
+          <li><a class="more" href="hilfe.html">Hilfe</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="nav navbar-nav">
+          <li><a class="more" href="https://twitter.com/djangode"><i
+            class="icon-social-twitter"></i> Twitter</a></li>
+          <li><a class="more" href="https://github.com/orgs/django-de"><i
+            class="icon-social-github"></i> Github</a></li>
+        </ul>
+      </div>
+      <div class="col-md-7">
+        <p>Deutscher Django-Verein e. V.<br/>
+          Erich-Zeigner-Allee 52<br/>
+          04229 Leipzig<br/>
+          Deutschland</p>
+        <p>Der Verein wird vertreten durch den Vorstand Markus Zapke-Gründemann,
+          Martin Mahner und Stephan Jaekel.</p>
+        <p>Vereinsregister: Amtsgericht Leipzig<br/>
+          Registernummer: VR 4814<br/>
+          USt-ID: DE269932358</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static "js/base.js" %}"></script>
+{% render_block "js" %}
+</body>
+</html>

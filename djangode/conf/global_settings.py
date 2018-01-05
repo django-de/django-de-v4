@@ -1,8 +1,9 @@
 import os
 import uuid
+import logging.config
 
 from django.utils.translation import ugettext_lazy as _
-
+from django.utils.log import DEFAULT_LOGGING
 
 DEBUG = False
 
@@ -52,8 +53,12 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'treebeard',
+    'filer',
+    'easy_thumbnails',
+    'django_markup',
 
-    'djangode.content.apps.ContentConfig',
+    'djangode',
+    'djangode.content',
 )
 
 TEMPLATES = [
@@ -118,31 +123,16 @@ STATICFILES_FINDERS = (
 
 CACHE_MIDDLEWARE_SECONDS = 60
 
-LOGGING = {
-    'version': 1,
-    'handlers': {
-        'null': {
-            'class': 'logging.NullHandler',
-        },
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'djangode': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-        },
-        'django': {
-            'level': 'WARNING',
-            'handlers': ['console'],
-        },
-    }
-}
+# ==============================================================================
+# CMS
+# ==============================================================================
+
 
 CMS_TEMPLATES = [
-    ('cms.html', _('Default template'))
+    ('default.html', _('Default template'))
 ]
+
+CMS_TEMPLATE_INHERITANCE = False
 
 CMS_TOOLBARS = [
     'cms.cms_toolbars.PlaceholderToolbar',
@@ -157,3 +147,86 @@ CMS_PLACEHOLDER_CONF = {
 }
 
 CMS_ENABLE_UPDATE_CHECK = False
+
+
+# ==============================================================================
+# Logging
+# ==============================================================================
+
+# Default JS Log Level (error, info, trace, ...)
+JS_LOG_LEVEL = os.getenv('JS_LOG_LEVEL', 'error')
+
+# Default Python Log Level (error, warning, info, debug, ...)
+PY_LOG_LEVEL = os.environ.get('LOG_LEVEL', 'warning').upper()
+
+# Disable Django's logging setup
+LOGGING_CONFIG = None
+LOGGING_DICT = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'default': {
+            # exact format is not important, this is the minimum information
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+        },
+        'simple': {'format': '%(levelname)s %(message)s'},
+        'django.server': DEFAULT_LOGGING['formatters']['django.server'],
+    },
+    'handlers': {
+        # console logs to stderr
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        },
+        # Add Handler for Sentry for `warning` and above
+        'sentry': {
+            'level': 'WARNING',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        },
+        'django.server': DEFAULT_LOGGING['handlers']['django.server'],
+    },
+    'loggers': {
+        # default for all undefined Python modules
+        '': {
+            'level': PY_LOG_LEVEL,
+            'handlers': ['console', 'sentry'],
+        },
+
+        # Our application code
+        'djangode': {'level': PY_LOG_LEVEL, 'handlers': ['console', 'sentry'], 'propagate': False},
+
+        # Prevent noisy modules from logging to Sentry
+        # 'noisy_module': {
+        #     'level': 'ERROR',
+        #     'handlers': ['console'],
+        #     'propagate': False,
+        # },
+
+        # Default runserver request logging
+        'django.server': DEFAULT_LOGGING['loggers']['django.server'],
+
+        # Force INFO logging for common django loggers
+        # so LOG_LEVEL=DEBUG would not apply to them.
+        'django.requests': {'level': 'WARNING', 'handlers': ['console', 'sentry'], 'propagate': False},
+        'django.template': {'level': 'WARNING', 'handlers': ['console', 'sentry'], 'propagate': False},
+        'django.db': {'level': 'WARNING', 'handlers': ['console', 'sentry'], 'propagate': False},
+
+        # Disable `RemovedInDjango110Warning` warnings
+        'py.warnings': {'level': 'ERROR', 'handlers': ['console']},
+    },
+}
+
+# Apply logging dict config
+logging.config.dictConfig(LOGGING_DICT)
+
+
+# ==============================================================================
+# Sentry
+# ==============================================================================
+
+# export RAVEN_DSN=https://<key>:<sec>@sentry.example.com/1
+RAVEN_DSN = os.environ.get('RAVEN_DSN', None)
+
+if RAVEN_DSN:
+    INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
+    RAVEN_CONFIG = {'dsn': RAVEN_DSN}

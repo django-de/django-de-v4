@@ -10,7 +10,6 @@ insert_final_newline = true
 [*.py]
 indent_style = space
 indent_size = 4
-
 line_length = 96
 multi_line_output = 4
 lines_after_imports = 2
@@ -27,7 +26,10 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-[nginx.conf]
+[*.js]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
+[*.html]
+indent_style = space
+indent_size = 2

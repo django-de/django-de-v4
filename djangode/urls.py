@@ -20,9 +20,6 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
-    url(
-        r'^sitemap\.xml$',
-        sitemap, {'sitemaps': {'cms': CMSSitemap}}, name='sitemap-xml'
-    ),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cms': CMSSitemap}}, name='sitemap-xml'),
     url(r'', include('cms.urls')),
 ]

@@ -1,0 +1,22 @@
+{% load markup_tags %}
+
+<div class="content-box {{ instance.theme }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="lined center">
+          <h2>{{ instance.headline }}</h2>
+          <div></div>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="rich-text">
+          {{ instance.text|apply_markup:"markdown" }}
+          {% if instance.link %}
+          <p><a class="more" href="{{ instance.link }}">{% firstof instance.link_text instance.link %}</a></p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

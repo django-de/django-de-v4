@@ -23,7 +23,7 @@ class EventPlugin(CMSPluginBase):
     child_classes = ('EventImagePlugin',)
     fieldsets = (
         (None, {
-            'fields': ('headline', 'image'),
+            'fields': ('headline',),
         }),
         ('Main Link', {
             'classes': ('collapse',),

@@ -1,1 +1,1 @@
-web: gunicorn djangode.wsgi --log-file -
+web: pipenv run gunicorn djangode.wsgi --log-file -

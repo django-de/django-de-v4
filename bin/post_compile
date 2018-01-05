@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#
+# Deployment script for Heroku instances.
+#
+# Note: Heroku needs to have specific buildpacks setup, in this order:
+#
+#   heroku buildpacks:clear
+#   heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs
+#   heroku buildpacks:add https://github.com/heroku/heroku-buildpack-python
+#
+# Slug cleanup:
+#
+#   heroku plugins:install heroku-repo
+#   heroku repo:gc
+#   heroku repo:purge_cache
+
+set -xeuf -o pipefail
+
+manage.py collectstatic --noinput -v0
+manage.py migrate --database default --noinput
+
+# Cleanup client side scripts which got already compiled
+rm -rf ./client
+rm -rf ./node_modules

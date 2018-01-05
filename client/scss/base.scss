@@ -1,0 +1,292 @@
+@import url(//fonts.googleapis.com/css?family=Roboto:400,300,700);
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
+
+$simple-line-font-path: "../assets/fonts/";
+
+$general-font-family:        'Roboto', sans-serif;
+$general-font-family-titles: 'Roboto Condensed', sans-serif;
+
+$general-link-color:       #5b9bd1;
+$general-link-hover-color: #32c5d2;
+$django-green:             #43B78B;
+
+// Bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/simple-line-icons/scss/simple-line-icons';
+
+@import 'jango/settings';
+@import 'jango/colors';
+@import 'jango/mixins';
+@import 'jango/base';
+
+#wagtail-userbar {
+    bottom: 0 !important;
+    right: 0 !important;
+    top: auto;
+}
+
+.image-label {
+    font-size: 13px;
+    margin: .3em 0;
+
+    a { color: $general-link-color; }
+}
+
+.lined {
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 33px;
+        margin: 0 0 30px 0;
+        text-transform: uppercase;
+    }
+
+    div {
+        width: 30px;
+        height: 3px;
+        background-color: $django-green;
+        margin: 0 auto 30px auto;
+    }
+
+    &.center {
+        h2 { text-align: center;}
+        div { margin-left: auto; margin-right: auto; }
+    }
+
+    &.left {
+        h2 { text-align: left;}
+        div { margin-left: 0; margin-right: auto; }
+    }
+
+    &.right {
+        h2 { text-align: right;}
+        div { margin-left: auto; margin-right: 0; }
+    }
+}
+
+.more {
+    color: $django-green;
+    border: 1px solid $django-green;
+    padding: .3em .5em;
+    display: inline-block;
+
+    &:hover {
+        background-color: $django-green;
+        color: white;
+    }
+
+    i {
+        font-size: .9em;
+        font-weight: 500;
+        vertical-align: baseline;
+        margin-left: .2em;
+    }
+}
+
+.content-box {
+    @include clearfix;
+    padding: 50px 0;
+
+    &.secondary { background-color: #f7f7f7; }
+    &.page-title { background-color: #f7fafb; }
+}
+
+span.bg-warning {
+    outline: 3px solid $btn-warning-bg;
+    padding: 0 2px;
+    margin-right: 2px;
+}
+
+.content-box-teaser {
+    padding-right: 30px;
+
+    &:last-child { padding-right: 0; }
+
+    h3 {
+        font-size: 30px;
+        font-weight: 600;
+        margin: 30px 0 25px 0;
+        text-transform: uppercase;
+    }
+
+    i {
+        font-size: 60px;
+        line-height: 60px;
+        color: $django-green;
+    }
+}
+
+
+.content-box-grid {
+
+    .grid-box {
+        padding: 20px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: $general-font-family-titles;
+        background-size: cover;
+        height: 260px;
+
+        a { color: #f7f7f7; }
+
+        a.more {
+            margin-top: 20px;
+            color: white;
+            border-color: white;
+            transition: .2s;
+
+            &:hover {
+                background-color: white;
+                color: $general-head-font-color;
+            }
+        }
+
+        &.arrow-left:before,
+        &.arrow-right:before {
+            top: calc(50% - 13px);
+            border: solid transparent;
+            content: " ";
+            position: absolute;
+            pointer-events: none;
+            border-width: 13px;
+            z-index: 99;
+        }
+        &.arrow-left:before { left: 0; }
+        &.arrow-right:before { right: 0; }
+    }
+
+    @each $box, $color in (box1, #32C5D2),
+                          (box2, #7A6A61),
+                          (box3, #E7505B),
+                          (box4, #57BFE1) {
+        .#{$box} {
+            background-color: #{$color};
+            &.arrow-left:before{ border-left-color: #{$color}; }
+            &.arrow-right:before{ border-right-color: #{$color}; }
+        }
+    }
+}
+
+
+/* ----------------------------------------------------------------------------
+   Header
+---------------------------------------------------------------------------- */
+.logo {
+    background-image: url(../assets/logo.svg);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    text-indent: -9999em;
+}
+
+.header {
+    /*
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: White;
+    z-index: 100;
+    */
+
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: $general-font-family-titles;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    h1 {
+        a {
+            display: block;
+            width: 300px;
+            height: 70px;
+        }
+    }
+
+    .nav-link {
+        padding: 35px 10px;
+        transition: all 0.2s;
+        color: #3a3f45;
+
+        &:hover { color: #32c5d2; }
+    }
+}
+
+.footer {
+    $footer-text-color: #7E8C93;
+    $footer-text-color-muted: #566065;
+
+    font-size: 15px;
+    padding: 50px 0;
+    background-color: #2e3336;
+    color: $footer-text-color;
+
+    h2 { color: $footer-text-color; margin-top: 0; }
+
+    .logo {
+        margin-bottom: 20px;
+        background-image: url(../assets/logo-white.svg);
+        opacity: .5;
+    }
+
+    a:hover {color: $django-green; }
+
+    a.more {
+        display: block;
+        font-weight: 300;
+        color: $footer-text-color-muted;
+        border-color: $footer-text-color-muted;
+    }
+
+    a.more:hover {
+        color: $django-green;
+        border-color: $django-green;
+        background-color: transparent;
+    }
+
+    .nav {
+        font-size: 18px;
+        a { margin-bottom: 10px; }
+    }
+
+}
+
+/* ----------------------------------------------------------------------------
+   Homepage Teaser Image
+---------------------------------------------------------------------------- */
+.teaser {
+    border-top: $hr-border-width solid $hr-border-color;
+    border-bottom: $hr-border-width solid $hr-border-color;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 300;
+    color: $django-green;
+
+    .row {
+        padding: 1em 0;
+    }
+
+    p {
+        margin: 0 auto;
+    }
+}
+
+.event-box {
+    margin-bottom: 20px;
+
+    .image img {
+        height: auto;
+        max-width: 100%;
+    }
+    .date {
+        color: $general-link-hover-color;
+        margin-right: .3em;
+    }
+}
+
+.event-date {
+    text-align: center;
+    font-size: 20px;
+    color: $general-link-hover-color;
+}

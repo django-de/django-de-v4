@@ -6,6 +6,8 @@ ALLOWED_HOSTS = ['localhost']
 
 DEBUG = True
 
+ALLOWED_HOSTS = ['*']
+
 TEMPLATES[0]['OPTIONS']['debug'] = True
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False

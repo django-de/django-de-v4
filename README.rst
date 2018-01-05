@@ -42,6 +42,30 @@ After all you can migrate the database:
     $ pipenv run ./manage.py migrate
 
 
+Static file compilation
+-----------------------
+
+How static files are treated
+
+- All client/browser related files are stored in client/.
+- Static files which don't need processing are in client/assets.
+- CSS and JS are compiled into the build/ folder using a make command.
+- Asset files are simply copied to the build/ folder.
+- Django's collectstatic takes everything from the build/ folder plus the
+  "classic" application static files and puts them in `STATIC_ROOT`.
+  This is also the folder we serve with the webserver.
+
+For CSS we use a factory of: Node-Sass for CSS compilation + autoprefixer.
+
+For JS we use browserify to collect all dependencies, from client/js as well as
+from the node_modules into one file. We transform that with Babel from ES6 to
+ES5 for compatibility reasons. We compress that with uglify.
+
+.. code-block:: bash
+
+    $ npm install
+    $ ./make.sh
+
 Staring the server & superuser
 ------------------------------
 

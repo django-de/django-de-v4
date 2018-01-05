@@ -42,7 +42,11 @@ RAVEN_CONFIG = {'dsn': RAVEN_DSN}
 # Store media uploads on S3
 #==============================================================================
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MIDDLEWARE_CLASSES += (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
 
 # Use Amazon S3 for storage for uploaded media files.
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"

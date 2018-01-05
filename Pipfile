@@ -4,7 +4,6 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [dev-packages]
 
 pytest = "*"
@@ -18,14 +17,14 @@ factory-boy = "*"
 
 [packages]
 
+gunicorn = "==19.7.1"
+"psycopg2" = "==2.7.3.2"
+whitenoise = "==3.3.1"
 django-cms = ">=3.4.5"
-"psycopg2" = "*"
 willow = "*"
 dj-database-url = "*"
-whitenoise = "*"
 raven = "*"
 django-markup = "*"
 markdown = "*"
 django-filer = "*"
 django-storages = "*"
-gunicorn = "*"

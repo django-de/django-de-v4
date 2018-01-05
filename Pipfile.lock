@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a6017f9c4b565eeac4488f4d7baa6939e6ca60e4bd9b7b2ae9ff8b784d138f60"
+            "sha256": "e63398a599838f804f013fc447057bd8794f4a9fe6bc264a2386e23d41260056"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -266,13 +266,6 @@
                 "sha256:9d81515f2b5b27051910996e1e860b1332e354d9e7bcf30c98f21dcb6713e0dd"
             ],
             "version": "==3.3.1"
-        },
-        "willow": {
-            "hashes": [
-                "sha256:76a8874304356b7d86923405f5ca1df125c3540fb55b32747e7a33ba59bc1744",
-                "sha256:818ee11803c90a0a6d49c94b0453d6266be1ef83ae00de72731c45fae4d3e78c"
-            ],
-            "version": "==1.1"
         }
     },
     "develop": {

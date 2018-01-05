@@ -91,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,7 +105,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
-)
+]
 
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'web', 'media')
 MEDIA_URL = '/media/'

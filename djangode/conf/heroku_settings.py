@@ -44,9 +44,7 @@ RAVEN_CONFIG = {'dsn': RAVEN_DSN}
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MIDDLEWARE_CLASSES += (
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-)
+MIDDLEWARE_CLASSES.insert(0, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # Use Amazon S3 for storage for uploaded media files.
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"

@@ -4,6 +4,7 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
+
 [dev-packages]
 
 pytest = "*"
@@ -17,7 +18,7 @@ factory-boy = "*"
 
 [packages]
 
-django = "==1.11.9"
+django = "==1.11.*"
 gunicorn = "==19.7.1"
 "psycopg2" = "==2.7.3.2"
 whitenoise = "==3.3.1"

@@ -20,13 +20,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name='Grid',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='schedule_event', serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='grid_grid', serialize=False, to='cms.CMSPlugin')),
                 ('headline', models.CharField(blank=True, max_length=4000, verbose_name='Headline')),
-                ('text', models.TextField(blank=True, verbose_name='Text')),
-                ('date', models.DateField(blank=True, null=True, verbose_name='Date')),
-                ('recurring', models.BooleanField(default=False, verbose_name='Recurring')),
                 ('link', models.CharField(blank=True, max_length=4000, verbose_name='Link')),
                 ('link_text', models.CharField(blank=True, max_length=4000, verbose_name='Link Text')),
                 ('page', cms.models.fields.PageField(blank=True, help_text='If both link and cms page is defined, the link is preferred.', null=True, on_delete=django.db.models.deletion.CASCADE, to='cms.Page', verbose_name=b'CMS Page')),
@@ -37,21 +34,14 @@ class Migration(migrations.Migration):
             bases=('cms.cmsplugin',),
         ),
         migrations.CreateModel(
-            name='EventImage',
+            name='Tile',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='schedule_eventimage', serialize=False, to='cms.CMSPlugin')),
-                ('image', filer.fields.image.FilerImageField(on_delete=django.db.models.deletion.CASCADE, to=settings.FILER_IMAGE_MODEL, verbose_name='Image')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=('cms.cmsplugin',),
-        ),
-        migrations.CreateModel(
-            name='Schedule',
-            fields=[
-                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='schedule_schedule', serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='grid_tile', serialize=False, to='cms.CMSPlugin')),
                 ('headline', models.CharField(blank=True, max_length=4000, verbose_name='Headline')),
+                ('link', models.CharField(blank=True, max_length=4000, verbose_name='Link')),
+                ('link_text', models.CharField(blank=True, max_length=4000, verbose_name='Link Text')),
+                ('image', filer.fields.image.FilerImageField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.FILER_IMAGE_MODEL, verbose_name='Main Image')),
+                ('page', cms.models.fields.PageField(blank=True, help_text='If both link and cms page is defined, the link is preferred.', null=True, on_delete=django.db.models.deletion.CASCADE, to='cms.Page', verbose_name=b'CMS Page')),
             ],
             options={
                 'abstract': False,

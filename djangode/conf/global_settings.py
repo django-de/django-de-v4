@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'djangode',
     'djangode.content',
     'djangode.schedule',
+    'djangode.grid',
 )
 
 TEMPLATES = [

@@ -1,0 +1,27 @@
+{% load easy_thumbnails_tags %}
+
+{# BOX1 + BOX2 = Right aligned #}
+{% if box == "box1" or box == "box2" %}
+
+  <div class="col-md-3 grid-box {{ box }}">
+    {{ instance.headline }}
+    {% if instance.link or instance.page %}
+    <p><a class="more" href="{% firstof instance.link instance.page.get_absolute_url %}">
+      {% firstof instance.link_text instance.page.get_title instance.link %}</a></p>
+    {% endif %}
+  </div>
+  <div class="col-md-3 hidden-md-down grid-box {{ box }} arrow-left" style="background-image: url({% thumbnail instance.image "300x300" crop %});"></div>
+
+  {# BOX3 + BOX4 = Left aligned #}
+{% else %}
+
+  <div class="col-md-3 hidden-md-down grid-box {{ box }} arrow-right" style="background-image: url({% thumbnail instance.image "300x300" crop %});"></div>
+  <div class="col-md-3 grid-box {{ box }}">
+    {{ instance.headline }}
+    {% if instance.link or instance.page %}
+    <p><a class="more" href="{% firstof instance.link instance.page.get_absolute_url %}">
+      {% firstof instance.link_text instance.page.get_title instance.link %}</a></p>
+    {% endif %}
+  </div>
+
+{% endif %}

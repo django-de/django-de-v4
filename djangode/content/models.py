@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from cms.models import CMSPlugin
 from cms.models.fields import PageField
 from django.db import models

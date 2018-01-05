@@ -9,19 +9,8 @@ from filer.fields.image import FilerImageField
 
 
 @python_2_unicode_compatible
-class Schedule(CMSPlugin):
+class Grid(CMSPlugin):
     headline = models.CharField(_('Headline'), max_length=4000, blank=True)
-
-    def __str__(self):
-        return '{0}'.format(self.headline[:23])
-
-
-@python_2_unicode_compatible
-class Event(CMSPlugin):
-    headline = models.CharField(_('Headline'), max_length=4000, blank=True)
-    text = models.TextField(_('Text'), blank=True)
-    date = models.DateField(_('Date'), blank=True, null=True)
-    recurring = models.BooleanField(_('Recurring'), default=False)
     link = models.CharField(_('Link'), blank=True, max_length=4000)
     page = PageField(
         verbose_name=('CMS Page'), blank=True, null=True,
@@ -32,5 +21,16 @@ class Event(CMSPlugin):
         return '{0}'.format(self.headline[:23])
 
 
-class EventImage(CMSPlugin):
-    image = FilerImageField(verbose_name=_('Image'))
+@python_2_unicode_compatible
+class Tile(CMSPlugin):
+    headline = models.CharField(_('Headline'), max_length=4000, blank=True)
+    image = FilerImageField(verbose_name=_('Main Image'), null=True, blank=True)
+    link = models.CharField(_('Link'), blank=True, max_length=4000)
+    page = PageField(
+        verbose_name=('CMS Page'), blank=True, null=True,
+        help_text=_('If both link and cms page is defined, the link is preferred.'))
+    link_text = models.CharField(_('Link Text'), blank=True, max_length=4000)
+
+    def __str__(self):
+        return '{0}'.format(self.headline[:23])
+

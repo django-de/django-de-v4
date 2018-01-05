@@ -30,7 +30,7 @@ class BasePlugin(DjangoCMSPluginBase):
         return fieldsets
 
     def render(self, context, instance, placeholder):
-        context = super().render(context, instance, placeholder)
+        context = super(BasePlugin, self).render(context, instance, placeholder)
 
         context['content_id'] = instance.pk
         context.update(dict((key, getattr(instance, key)) for key in self.context_fields))

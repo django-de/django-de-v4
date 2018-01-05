@@ -1,14 +1,15 @@
-#!/usr/bin/env python
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
+
 
 setup(
-    name='djde',
-    version='1.0',
-    description="",
-    author="Deutscher Django-Verein e.V.",
-    author_email='kontakt@django-de.org',
-    url='',
+    name='djangode',
+    version='1.0.0',
+    author='Deutscher Django Verein e.V.',
+    url='https://github.com/django-de/django-de-website',
     packages=find_packages(),
-    package_data={'djde': ['static/*.*', 'templates/*.*']},
-    scripts=['manage.py'],
+    classifiers=[
+        'Framework :: Django',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+    ],
 )

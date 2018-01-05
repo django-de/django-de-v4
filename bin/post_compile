@@ -17,8 +17,8 @@
 
 set -xeuf -o pipefail
 
-manage.py collectstatic --noinput -v0
-manage.py migrate --database default --noinput
+pipenv run ../manage.py collectstatic --noinput -v0
+pipenv run ../manage.py migrate --database default --noinput
 
 # Cleanup client side scripts which got already compiled
 rm -rf ./client

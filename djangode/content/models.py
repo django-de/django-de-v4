@@ -1,9 +1,21 @@
 from cms.models import CMSPlugin
 from cms.models.fields import PageField
 from django.db import models
+from django.template.defaultfilters import striptags
+from django.utils.six import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 
+@python_2_unicode_compatible
+class PlainTextContent(CMSPlugin):
+    text = models.TextField(_('Text'), blank=True)
+    html = models.BooleanField(_('Allow HTML'), default=False)
+
+    def __str__(self):
+        return '{0}'.format(striptags(self.text[:23]))
+
+
+@python_2_unicode_compatible
 class TextContent(CMSPlugin):
     ALIGNMENT_CHOICES = (
         ('top', _('Top')),
@@ -32,11 +44,12 @@ class TextContent(CMSPlugin):
     def __str__(self):
         if self.headline:
             return '<{0}>'.format(self.headline)
-        return '<{0}>'.format(self.text[:23])
+        return '{0}'.format(self.text[:23])
 
 
+@python_2_unicode_compatible
 class TeaserContent(CMSPlugin):
     teaser = models.TextField(_('Teaser'), blank=True)
 
     def __str__(self):
-        return '<{0}>'.format(self.teaser)
+        return '{0}'.format(self.teaser[:23])

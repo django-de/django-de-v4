@@ -1,0 +1,7 @@
+{% load markup_tags %}
+
+{% if instance.html %}
+  {{ instance.text|safe }}
+{% else %}
+  {{ instance.text|apply_markup:"markdown" }}
+{% endif %}

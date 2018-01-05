@@ -1,0 +1,32 @@
+{% load markup_tags %}
+{% load cms_tags %}
+
+<div class="row event-box">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>
+      <span class="date">
+        {% if instance.recurring %}
+          <i class="icon-refresh"></i>
+        {% else %}
+          {{ instance.date|date:"DATE_FORMAT" }}
+        {% endif %}
+      </span>
+      {{ instance.headline }}
+    </h2>
+    {{ instance.text|apply_markup:"markdown" }}
+
+    {% if instance.link or instance.page %}
+    <p><a class="more" href="{% firstof instance.link instance.page.get_absolute_url %}">{% firstof instance.link_text instance.page.get_title instance.link %}</a></p>
+    {% endif %}
+  </div>
+
+  {% if instance.child_plugin_instances %}
+  <div class="col-md-8 col-md-offset-2">
+    <div class="event-gallery">
+    {% for plugin in instance.child_plugin_instances %}
+      {% render_plugin plugin %}
+    {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>

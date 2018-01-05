@@ -15,7 +15,8 @@
           {% if instance.link or instance.page %}
           <p><a class="more" href="{% firstof instance.link instance.page.get_absolute_url %}">{% firstof instance.link_text instance.page.get_title instance.link %}</a></p>
           {% endif %}
-        </div>      </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

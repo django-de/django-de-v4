@@ -1,9 +1,8 @@
-from cms.models import CMSPlugin
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
 
-from .models import TextContent, TeaserContent
+from .models import TextContent, TeaserContent, PlainTextContent
 
 
 class TextPlugin(CMSPluginBase):
@@ -29,5 +28,12 @@ class TeaserPlugin(CMSPluginBase):
     render_template = 'content/teaser.html'
 
 
+class PlainTextPlugin(CMSPluginBase):
+    name = _('Plain Text (no Layout)')
+    model = PlainTextContent
+    render_template = 'content/plain_text.html'
+
+
 plugin_pool.register_plugin(TextPlugin)
 plugin_pool.register_plugin(TeaserPlugin)
+plugin_pool.register_plugin(PlainTextPlugin)

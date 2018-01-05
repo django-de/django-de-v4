@@ -28,6 +28,7 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
 # Redirect to https
+MIDDLEWARE_CLASSES.append('django.middleware.security.SecurityMiddleware')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 

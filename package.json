@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "base.js",
-  "scripts": {},
+  "scripts": {
+    "install": "./make.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/django-de/django-de-v4.git"

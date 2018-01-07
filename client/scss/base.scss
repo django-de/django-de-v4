@@ -231,12 +231,14 @@ span.bg-warning {
 
 	.nav {
 		display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 
 		li {
       //outline: 1px solid red;
+      margin: 0 20px;
+
       a {
         transition: all 0.2s;
         color: #3a3f45;
@@ -260,7 +262,6 @@ span.bg-warning {
   .nav {
     height: 70px;
     float: right;
-    li { margin: 0 20px; }
   }
 }
 

@@ -219,6 +219,7 @@ span.bg-warning {
 	font-family: $general-font-family-titles;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+  overflow: auto;
 
 	h1 {
 		a {
@@ -257,11 +258,12 @@ span.bg-warning {
   .header {
     h1 { float: left; }
     h1 a { width: 300px; }
-  }
 
-  .nav {
-    height: 70px;
-    float: right;
+    .nav {
+      margin-bottom: 0;
+      height: 70px;
+      float: right;
+    }
   }
 }
 

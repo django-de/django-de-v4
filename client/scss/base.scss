@@ -1,8 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Roboto:400,300,700);
 @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
 
-$simple-line-font-path: "../assets/fonts/";
-
 $general-font-family: 'Roboto', sans-serif;
 $general-font-family-titles: 'Roboto Condensed', sans-serif;
 
@@ -11,8 +9,8 @@ $general-link-hover-color: #32c5d2;
 $django-green: #43B78B;
 
 // Bootstrap
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/simple-line-icons/scss/simple-line-icons';
+@import 'bootstrap';
+@import 'simple-line-icons';
 
 @import 'jango/settings';
 @import 'jango/colors';
@@ -115,7 +113,7 @@ $django-green: #43B78B;
 }
 
 span.bg-warning {
-	outline: 3px solid $btn-warning-bg;
+	outline: 3px solid $brand-warning;
 	padding: 0 2px;
 	margin-right: 2px;
 }

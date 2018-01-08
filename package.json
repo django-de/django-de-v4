@@ -1,37 +1,42 @@
 {
   "name": "django-de",
   "version": "1.0.0",
+  "author": "",
   "description": "",
-  "main": "base.js",
-  "scripts": {
-    "install": "./make.sh"
-  },
+  "homepage": "https://github.com/django-de/django-de-v4#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/django-de/django-de-v4.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/django-de/django-de-v4/issues"
   },
-  "dependencies": {
-    "autoprefixer": "^6.1.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babelify": "^7.2.0",
-    "bootstrap": "https://github.com/twbs/bootstrap/tarball/v4.0.0-alpha",
-    "browserify": "^12.0.1",
-    "font-awesome": "^4.5.0",
-    "jquery": "^2.1.4",
-    "loglevel": "^1.4.0",
-    "node-sass": "^3.4.2",
-    "postcss-cli": "^2.3.2",
-    "simple-line-icons": "^2.2.3",
-    "tether": "^1.1.1",
-    "uglifyjs": "^2.4.10"
+  "main": "base.js",
+  "browserslist": "last 2 versions",
+  "scripts": {
+    "watch-js": "webpack --env.NODE_ENV=development --env.JS=1",
+    "watch-css": "webpack --env.NODE_ENV=development --env.CSS=1",
+    "watch": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\"",
+    "build": "webpack --env.NODE_ENV=production --env.CSS=1 -p; webpack --env.NODE_ENV=production --env.JS=1 -p"
   },
-  "homepage": "https://github.com/django-de/django-de-v4#readme",
-  "devDependencies": {
-    "watchify": "^3.6.1"
-  }
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "babel-loader": "^8.0.0-beta.0",
+    "bootstrap": "^4.0.0-beta.3",
+    "concurrently": "^3.5.1",
+    "css-loader": "^0.28.8",
+    "cssnano": "^3.10.0",
+    "file-loader": "^1.1.6",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.7.2",
+    "popper.js": "^1.12.9",
+    "postcss-loader": "^2.0.10",
+    "sass-loader": "^6.0.6",
+    "simple-line-icons": "^2.4.1",
+    "tether": "^1.4.3",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {}
 }

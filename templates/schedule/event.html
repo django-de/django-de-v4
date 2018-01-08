@@ -2,7 +2,7 @@
 {% load cms_tags %}
 
 <div class="row event-box">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 justify-content-center">
     <h2>
       <span class="date">
         {% if instance.recurring %}
@@ -21,7 +21,7 @@
   </div>
 
   {% if instance.child_plugin_instances %}
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 justify-content-center">
     <div class="event-gallery">
     {% for plugin in instance.child_plugin_instances %}
       {% render_plugin plugin %}

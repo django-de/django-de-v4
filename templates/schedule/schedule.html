@@ -10,9 +10,8 @@
         </div>
       </div>
     </div>
+    {% for plugin in instance.child_plugin_instances %}
+      {% render_plugin plugin %}
+    {% endfor %}
   </div>
-
-  {% for plugin in instance.child_plugin_instances %}
-    {% render_plugin plugin %}
-  {% endfor %}
 </div>

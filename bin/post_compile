@@ -17,11 +17,9 @@
 
 set -xeuf -o pipefail
 
+npm run build
 manage.py collectstatic --noinput -v0
 manage.py migrate --database default --noinput
-
-# Webpack CSS/JS build
-npm run build
 
 # Cleanup client side scripts which got already compiled
 rm -rf ./client

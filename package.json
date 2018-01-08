@@ -15,10 +15,12 @@
   "main": "base.js",
   "browserslist": "last 2 versions",
   "scripts": {
-    "watch-js": "webpack --env.NODE_ENV=development --env.JS=1",
     "watch-css": "webpack --env.NODE_ENV=development --env.CSS=1",
+    "watch-js": "webpack --env.NODE_ENV=development --env.JS=1",
     "watch": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\"",
-    "build": "webpack --env.NODE_ENV=production --env.CSS=1 -p; webpack --env.NODE_ENV=production --env.JS=1 -p"
+    "build-css": "webpack --env.NODE_ENV=production --env.CSS=1 -p",
+    "build-js": "webpack --env.NODE_ENV=production --env.JS=1 -p",
+    "build": "npm run build-css && npm run build-js"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.36",
@@ -28,6 +30,7 @@
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.8",
     "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "jquery": "^3.2.1",
     "node-sass": "^4.7.2",

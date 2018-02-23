@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+
+{#  Enable markdown editor on all textareas #}
+{% block extrahead %}
+  {{ block.super }}
+
+  <script>
+  django.jQuery(document).ready(function() {
+    django.jQuery('textarea').each(function() {
+      new SimpleMDE({
+        element: this,
+        spellChecker: false
+      });
+    });
+  });
+  </script>
+{% endblock %}

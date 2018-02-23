@@ -1,8 +1,10 @@
+{% load markup_tags %}
+
 <div class="teaser">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <div class="rich-text">{{ instance.teaser|linebreaks }}</div>
+        <div class="rich-text">{{ instance.teaser|apply_markup:"markdown" }}</div>
       </div>
     </div>
   </div>

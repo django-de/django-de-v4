@@ -2,10 +2,11 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
 
+from ..cms_plugins import MDEPluginBase
 from .models import TextContent, TeaserContent, PlainTextContent
 
 
-class TextPlugin(CMSPluginBase):
+class TextPlugin(MDEPluginBase):
     name = _('Title + Text')
     model = TextContent
     fieldsets = (
@@ -22,7 +23,7 @@ class TextPlugin(CMSPluginBase):
         return 'content/text_{0}.html'.format(instance.alignment)
 
 
-class TeaserPlugin(CMSPluginBase):
+class TeaserPlugin(MDEPluginBase):
     name = _('Teaser')
     model = TeaserContent
     render_template = 'content/teaser.html'

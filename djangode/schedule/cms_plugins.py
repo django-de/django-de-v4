@@ -4,6 +4,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
 
+from ..cms_plugins import MDEPluginBase
 from .models import Event, Schedule
 
 
@@ -15,7 +16,7 @@ class SchedulePlugin(CMSPluginBase):
     child_classes = ('EventPlugin',)
 
 
-class EventPlugin(CMSPluginBase):
+class EventPlugin(MDEPluginBase):
     name = _('Event')
     model = Event
     render_template = 'schedule/event.html'

@@ -1,5 +1,15 @@
 {% load markup_tags %}
 {% load cms_tags %}
+{% load easy_thumbnails_tags %}
+{% load sekizai_tags %}
+
+{% addtoblock "js" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+{% endaddtoblock %}
 
 <div class="row justify-content-center event-box">
   <div class="col-md-8">
@@ -19,12 +29,13 @@
     <p><a class="more" href="{% firstof instance.link instance.page.get_absolute_url %}">{% firstof instance.link_text instance.page.get_title instance.link %}</a></p>
     {% endif %}
   </div>
-
-  {% if instance.child_plugin_instances %}
+  {% if instance.gallery_images %}
   <div class="col-md-8">
     <div class="event-gallery">
-    {% for plugin in instance.child_plugin_instances %}
-      {% render_plugin plugin %}
+    {% for image in instance.gallery_images %}
+      <a data-fancybox="images" href="{% thumbnail image.file "1600x1000" %}" target="_blank">
+        <img src="{% thumbnail image.file "160x160" %}"/>
+      </a>
     {% endfor %}
     </div>
   </div>

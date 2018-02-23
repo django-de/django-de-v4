@@ -19,6 +19,8 @@ pytest-flakes = "*"
 pytest-isort = "*"
 "pytest-pep8" = "*"
 factory-boy = "*"
+pip-check = "*"
+ipdb = "*"
 
 
 [packages]

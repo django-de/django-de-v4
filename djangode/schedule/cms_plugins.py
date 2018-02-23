@@ -4,7 +4,8 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Schedule, Event, EventImage
+from .models import Event, Schedule
+
 
 class SchedulePlugin(CMSPluginBase):
     name = _('Schedule')
@@ -25,20 +26,15 @@ class EventPlugin(CMSPluginBase):
         (None, {
             'fields': ('headline', 'text', ('date', 'recurring')),
         }),
-        ('Main Link', {
+        (_('Image Gallery'), {
+            'fields': ('gallery',),
+        }),
+        (_('Main Link'), {
             'classes': ('collapse',),
             'fields': ('link_text', 'link', 'page'),
         }),
     )
 
 
-class EventImagePlugin(CMSPluginBase):
-    name = _('Image')
-    model = EventImage
-    render_template = 'schedule/image.html'
-    require_parent = True
-
-
 plugin_pool.register_plugin(SchedulePlugin)
 plugin_pool.register_plugin(EventPlugin)
-plugin_pool.register_plugin(EventImagePlugin)

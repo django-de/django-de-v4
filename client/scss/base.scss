@@ -352,11 +352,12 @@ span.bg-warning {
 
 .event-gallery {
 	display: flex;
+  flex-wrap: wrap;
 	justify-content: baseline;
 	align-items: center;
 
 	a {
-		margin-right: 20px;
+    margin: 0 10px 10px 0;
 
 		&:last-child {
 			margin-right: 0;

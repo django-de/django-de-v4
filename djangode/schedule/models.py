@@ -5,7 +5,8 @@ from cms.models.fields import PageField
 from django.db import models
 from django.utils.six import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-from filer.fields.image import FilerImageField
+from filer.fields.folder import FilerFolderField
+from filer.models import Image
 
 
 @python_2_unicode_compatible
@@ -27,10 +28,14 @@ class Event(CMSPlugin):
         verbose_name=('CMS Page'), blank=True, null=True,
         help_text=_('If both link and cms page is defined, the link is preferred.'))
     link_text = models.CharField(_('Link Text'), blank=True, max_length=4000)
+    gallery = FilerFolderField(
+        verbose_name=('Image Gallery'), blank=True, null=True)
 
     def __str__(self):
         return '{0}'.format(self.headline[:23])
 
-
-class EventImage(CMSPlugin):
-    image = FilerImageField(verbose_name=_('Image'))
+    @property
+    def gallery_images(self):
+        if not self.gallery:
+            return []
+        return Image.objects.filter(folder=self.gallery)

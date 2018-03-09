@@ -1,6 +1,8 @@
+djangode.egg-info
 .cache
 .env
 .venv
 node_modules
 build
 web
+__pycache__

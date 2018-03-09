@@ -1,4 +1,6 @@
 .cache
+.env
+.venv
 node_modules
 build
 web

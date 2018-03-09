@@ -20,7 +20,8 @@
     "watch": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\"",
     "build-css": "webpack --env.NODE_ENV=production --env.CSS=1 -p",
     "build-js": "webpack --env.NODE_ENV=production --env.JS=1 -p",
-    "build": "npm run build-css && npm run build-js"
+    "build": "npm run build-css && npm run build-js",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.40",

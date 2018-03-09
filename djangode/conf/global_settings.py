@@ -106,6 +106,7 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'web', 'media')

@@ -277,7 +277,16 @@ span.bg-warning {
 	h2 {
 		color: $footer-text-color;
 		margin-top: 0;
-	}
+  }
+
+  a:link,
+  a:visited {
+    color: $django-green;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 
 	.logo {
 		margin-bottom: 20px;
@@ -299,7 +308,8 @@ span.bg-warning {
 	a.more:hover {
 		color: $django-green;
 		border-color: $django-green;
-		background-color: transparent;
+    background-color: transparent;
+    text-decoration: none;
 	}
 
 	.nav {

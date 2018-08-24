@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [dev-packages]
-
 pytest = "*"
 pytest-cov = "*"
 pytest-django = "*"
@@ -17,9 +14,7 @@ factory-boy = "*"
 pip-check = "*"
 ipdb = "*"
 
-
 [packages]
-
 django = "==1.11.*"
 gunicorn = "==19.9.0"
 "psycopg2" = "==2.7.5"
@@ -32,3 +27,4 @@ markdown = "*"
 django-filer = "*"
 django-storages = "*"
 "boto3" = "==1.4.4"
+python-memcached = "*"

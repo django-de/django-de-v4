@@ -1,0 +1,13 @@
+{% load thumbnail %}
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 col-sm-12">
+      <div class="align-center">
+        <img src="{% thumbnail instance.image "1200x600" %}"
+             srcset="{% thumbnail instance.image "1800x900" %} 2x"
+             style="min-width: 100%;"/>
+      </div>
+    </div>
+  </div>
+</div>

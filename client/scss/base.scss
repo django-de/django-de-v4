@@ -17,6 +17,10 @@ $django-green: #43B78B;
 @import 'jango/mixins';
 @import 'jango/base';
 
+.align-center {
+  text-align: center;
+}
+
 #wagtail-userbar {
 	bottom: 0 !important;
 	right: 0 !important;

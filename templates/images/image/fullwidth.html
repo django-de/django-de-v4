@@ -1,0 +1,10 @@
+{% load thumbnail %}
+
+{% thumbnail instance.image "900x600" crop upscale as thumb %}
+
+<div style="
+  background-image: url({{ thumb.url }});
+  background-size: cover;
+  height: 600px;
+">
+</div>

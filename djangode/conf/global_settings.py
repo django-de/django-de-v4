@@ -62,6 +62,7 @@ INSTALLED_APPS = (
     'djangode.content',
     'djangode.schedule',
     'djangode.grid',
+    'djangode.images',
 )
 
 TEMPLATES = [
@@ -124,6 +125,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'django_cache',
+    }
+}
 
 CACHE_MIDDLEWARE_SECONDS = 3600
 

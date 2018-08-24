@@ -34,7 +34,8 @@
     <div class="event-gallery">
     {% for image in instance.gallery_images %}
       <a data-fancybox="images" href="{% thumbnail image.file "1600x1000" %}" target="_blank">
-        <img src="{% thumbnail image.file "160x160" %}"/>
+        <img src="{% thumbnail image.file "160x160" %}"
+             srcset="{% thumbnail image.file "320x320" %} 2x"/>
       </a>
     {% endfor %}
     </div>

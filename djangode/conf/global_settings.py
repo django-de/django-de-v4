@@ -142,6 +142,7 @@ CMS_CACHE_DURATIONS = {
 }
 
 CMS_CACHE_PREFIX = 'cms-djde-'
+KEY_PREFIX = 'djde-'
 
 # ==============================================================================
 # CMS

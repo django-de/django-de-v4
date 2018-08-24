@@ -6,6 +6,13 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': os.environ.get('MEMCACHED_HOST', '127.0.0.1:11211'),
+    }
+}
+
 MANAGERS = ADMINS = (
     ('Django e.V.', os.environ.get('ADMIN_EMAIL')),
 )
@@ -24,3 +31,4 @@ STATIC_URL = '/static/'
 # Sentry
 INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
 RAVEN_CONFIG = {'dsn': os.environ.get('RAVEN_DSN', None)}
+

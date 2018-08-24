@@ -9,6 +9,7 @@ Installation
     $ # Clone repository
     $ git clone git@github.com:django-de/django-de-website.git
 
+    $ npm install
     $ pipenv install
 
     $ # run tests
@@ -64,7 +65,6 @@ ES5 for compatibility reasons. We compress that with uglify.
 .. code-block:: bash
 
     $ npm install
-    $ ./make.sh
 
 Staring the server & superuser
 ------------------------------

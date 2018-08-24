@@ -125,13 +125,19 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-CACHE_MIDDLEWARE_SECONDS = 60
+CACHE_MIDDLEWARE_SECONDS = 3600
+
+CMS_CACHE_DURATIONS = {
+    'content': CACHE_MIDDLEWARE_SECONDS,
+    'menus': CACHE_MIDDLEWARE_SECONDS,
+    'permissions': 0,
+}
 
 # ==============================================================================
 # CMS
 # ==============================================================================
 
-THUMBNAIL_HIGH_RESOLUTION = True
+THUMBNAIL_HIGH_RESOLUTION = False
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -158,7 +164,7 @@ CMS_PLACEHOLDER_CONF = {
     },
 }
 
-CMS_ENABLE_UPDATE_CHECK = False
+CMS_ENABLE_UPDATE_CHECK = True
 
 
 # ==============================================================================

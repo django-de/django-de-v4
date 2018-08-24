@@ -26,13 +26,6 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
     'django.template.loaders.app_directories.Loader',
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'djangode_dev',
-    }
-}
-
 CACHE_MIDDLEWARE_SECONDS = 0
 
 CMS_PAGE_CACHE = False
